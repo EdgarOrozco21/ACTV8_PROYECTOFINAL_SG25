@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centros de Acopio</title>
+</head>
+<body>
+    <h1>Centros de Acopio</h1>
+    <a href="{% url 'agregar_centro' %}">Agregar Centro</a>
+    <ul>
+        {% for centro in centros %}
+            <li>
+                {{ centro.nombre }} - {{ centro.direccion }}
+                <a href="{% url 'editar_centro' centro.id %}">Editar</a>
+                <a href="{% url 'borrar_centro' centro.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

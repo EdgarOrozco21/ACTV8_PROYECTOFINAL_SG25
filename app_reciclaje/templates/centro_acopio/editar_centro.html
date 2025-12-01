@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mt-10">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Editar Centro de Acopio</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+            <input type="text" id="nombre" name="nombre" value="{{ centro.nombre }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="direccion" class="block text-gray-700 text-sm font-bold mb-2">Dirección</label>
+            <input type="text" id="direccion" name="direccion" value="{{ centro.direccion }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="telefono" class="block text-gray-700 text-sm font-bold mb-2">Teléfono</label>
+            <input type="text" id="telefono" name="telefono" value="{{ centro.telefono }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" value="{{ centro.email }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="horario_atencion" class="block text-gray-700 text-sm font-bold mb-2">Horario de Atención</label>
+            <input type="text" id="horario_atencion" name="horario_atencion" value="{{ centro.horario_atencion }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="capacidad_toneladas" class="block text-gray-700 text-sm font-bold mb-2">Capacidad (Toneladas)</label>
+            <input type="number" step="0.01" id="capacidad_toneladas" name="capacidad_toneladas" value="{{ centro.capacidad_toneladas }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="latitud" class="block text-gray-700 text-sm font-bold mb-2">Latitud</label>
+            <input type="number" step="0.000001" id="latitud" name="latitud" value="{{ centro.latitud }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="longitud" class="block text-gray-700 text-sm font-bold mb-2">Longitud</label>
+            <input type="number" step="0.000001" id="longitud" name="longitud" value="{{ centro.longitud }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Actualizar
+            </button>
+            <a href="{% url 'ver_centros' %}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrar Centro de Acopio</title>
+</head>
+<body>
+    <h1>¿Estás seguro de que quieres borrar "{{ centro.nombre }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+        <a href="{% url 'ver_centros' %}">Cancelar</a>
+    </form>
+</body>
+</html>

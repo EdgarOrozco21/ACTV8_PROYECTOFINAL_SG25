@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Reciclaje</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-white text-lg font-bold">Centro de Reciclaje</a>
+            <div>
+                <a href="/materiales" class="text-gray-300 hover:text-white mr-4">Materiales</a>
+                <a href="/centros" class="text-gray-300 hover:text-white mr-4">Centros de Acopio</a>
+                <a href="/donantes" class="text-gray-300 hover:text-white mr-4">Donantes</a>
+                <a href="/empleados" class="text-gray-300 hover:text-white mr-4">Empleados</a>
+                <a href="/recepciones" class="text-gray-300 hover:text-white">Recepciones</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

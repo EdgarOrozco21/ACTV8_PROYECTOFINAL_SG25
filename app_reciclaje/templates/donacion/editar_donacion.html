@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Donación</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="donante">Donante</label>
+        <select class="form-control" id="donante" name="donante" required>
+            {% for donante in donantes %}
+            <option value="{{ donante.id }}" {% if donante.id == donacion.donante.id %}selected{% endif %}>{{ donante.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="centro_acopio">Centro de Acopio</label>
+        <select class="form-control" id="centro_acopio" name="centro_acopio" required>
+            {% for centro in centros %}
+            <option value="{{ centro.id }}" {% if centro.id == donacion.centro_acopio.id %}selected{% endif %}>{{ centro.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="material">Material</label>
+        <select class="form-control" id="material" name="material" required>
+            {% for material in materiales %}
+            <option value="{{ material.id }}" {% if material.id == donacion.material.id %}selected{% endif %}>{{ material.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cantidad">Cantidad (kg)</label>
+        <input type="number" step="0.01" class="form-control" id="cantidad" name="cantidad" value="{{ donacion.cantidad_kg }}" required>
+    </div>
+    <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" value="{{ donacion.fecha_donacion|date:'Y-m-d' }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

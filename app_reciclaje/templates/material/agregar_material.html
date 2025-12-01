@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mt-10">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Agregar Material</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">Descripción</label>
+            <textarea id="descripcion" name="descripcion" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="tipo_material" class="block text-gray-700 text-sm font-bold mb-2">Tipo de Material</label>
+            <input type="text" id="tipo_material" name="tipo_material" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="precio_por_kg" class="block text-gray-700 text-sm font-bold mb-2">Precio por Kg</label>
+            <input type="number" step="0.01" id="precio_por_kg" name="precio_por_kg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="unidad_medida" class="block text-gray-700 text-sm font-bold mb-2">Unidad de Medida</label>
+            <input type="text" id="unidad_medida" name="unidad_medida" value="kg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="punto_acopio_recomendado" class="block text-gray-700 text-sm font-bold mb-2">Punto de Acopio Recomendado</label>
+            <input type="text" id="punto_acopio_recomendado" name="punto_acopio_recomendado" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="codigo_identificacion" class="block text-gray-700 text-sm font-bold mb-2">Código de Identificación</label>
+            <input type="text" id="codigo_identificacion" name="codigo_identificacion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="es_toxico" class="form-checkbox h-5 w-5 text-gray-600">
+                <span class="ml-2 text-gray-700">¿Es tóxico?</span>
+            </label>
+        </div>
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Guardar
+            </button>
+            <a href="{% url 'ver_materiales' %}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

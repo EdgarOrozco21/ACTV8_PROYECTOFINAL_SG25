@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Registro de Donaciones</h2>
+<a href="{% url 'agregar_donacion' %}" class="btn btn-primary mb-3">Agregar Donación</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Donante</th>
+            <th>Centro de Acopio</th>
+            <th>Material</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for donacion in donaciones %}
+        <tr>
+            <td>{{ donacion.donante.nombre }}</td>
+            <td>{{ donacion.centro_acopio.nombre }}</td>
+            <td>{{ donacion.material.nombre }}</td>
+            <td>{{ donacion.cantidad_kg }}</td>
+            <td>{{ donacion.fecha_donacion }}</td>
+            <td>
+                <a href="{% url 'editar_donacion' donacion.id %}" class="btn btn-sm btn-info">Editar</a>
+                <a href="{% url 'borrar_donacion' donacion.id %}" class="btn btn-sm btn-danger">Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mt-10">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Agregar Recepción</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="material" class="block text-gray-700 text-sm font-bold mb-2">Material</label>
+            <select id="material" name="material" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="">Seleccione un material</option>
+                {% for material in materiales %}
+                    <option value="{{ material.id }}">{{ material.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="empleado_recepcion" class="block text-gray-700 text-sm font-bold mb-2">Empleado que Recibe</label>
+            <select id="empleado_recepcion" name="empleado_recepcion" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="">Seleccione un empleado</option>
+                {% for empleado in empleados %}
+                    <option value="{{ empleado.id }}">{{ empleado.nombre }} {{ empleado.apellido }} (Centro: {{ empleado.centro_acopio.nombre }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="donante" class="block text-gray-700 text-sm font-bold mb-2">Donante (Opcional)</label>
+            <select id="donante" name="donante" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="">Seleccione un donante</option>
+                {% for donante in donantes %}
+                    <option value="{{ donante.id }}">{{ donante.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="cantidad_kg" class="block text-gray-700 text-sm font-bold mb-2">Cantidad (kg)</label>
+            <input type="number" step="0.01" id="cantidad_kg" name="cantidad_kg" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="estado_material" class="block text-gray-700 text-sm font-bold mb-2">Estado del Material</label>
+            <input type="text" id="estado_material" name="estado_material" value="Recibido" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="observaciones" class="block text-gray-700 text-sm font-bold mb-2">Observaciones</label>
+            <textarea id="observaciones" name="observaciones" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Guardar
+            </button>
+            <a href="{% url 'ver_recepciones' %}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
