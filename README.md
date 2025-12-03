@@ -17,7 +17,7 @@
 <img width="1917" height="1039" alt="image" src="https://github.com/user-attachments/assets/aa556a0b-bd2b-4357-b358-deb697ee722a" />
 
 ## Procesamiento
-<img width="1920" height="1004" alt="image" src="https://github.com/user-attachments/assets/c8300262-9175-4931-912f-f1f4bd5d6070" 
+<img width="1920" height="1004" alt="image" src="https://github.com/user-attachments/assets/c8300262-9175-4931-912f-f1f4bd5d6070" />
 
 ## Ventas
 <img width="1920" height="1050" alt="image" src="https://github.com/user-attachments/assets/a4b6be5a-3281-4233-8f5a-996866065b64" />
